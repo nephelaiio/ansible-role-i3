@@ -12,7 +12,7 @@ i3_packages_state: present
 i3_users:
   - "{{ ansible_ssh_user }}"
 
-i3_conf_template: i3.conf
+i3_conf_template: config
 
 i3_conf_dir: .config/i3
 

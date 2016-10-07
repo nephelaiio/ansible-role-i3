@@ -166,4 +166,4 @@ new_window  none
 new_float   none
 
 # lock screen
-bindsym $mod+Shift+Return exec scrot /tmp/i3lock.png ; i3lock -i /tmp/i3lock.png
+bindsym $mod+Shift+Return exec "scrot /tmp/i3lock.png ; i3lock -i /tmp/i3lock.png"
