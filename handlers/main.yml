@@ -1,0 +1,7 @@
+---
+# handlers file for i3
+- name: restart i3 services
+  service:
+    name=i3_service_name
+    state=restarted
+  become: yes
