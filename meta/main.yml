@@ -19,4 +19,5 @@ galaxy_info:
   galaxy_tags:
     - i3
 
-dependencies: []
+dependencies:
+  - { role: nephelaiio.rxvt-unicode }
