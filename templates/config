@@ -8,7 +8,7 @@ font pango:inconsolata 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return urxvt -e tmux
+bindsym $mod+Return exec urxvt -e tmux
 
 # kill focused window
 bindsym $mod+Shift+q kill
