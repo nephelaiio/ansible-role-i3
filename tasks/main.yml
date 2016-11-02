@@ -51,7 +51,7 @@
     state=present
     create=yes
     insertafter=EOF
-    regexp="^exec "
+    regexp="^exec .*"
     line="exec i3"
   become: no
   with_items: "{{ i3_users }}"
