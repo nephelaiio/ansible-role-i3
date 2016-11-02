@@ -4,3 +4,5 @@ i3_packages:
   - i3lock
   - i3status
   - scrot
+  - pulseaudio
+  - xorg-server
