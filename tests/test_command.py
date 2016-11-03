@@ -7,3 +7,4 @@ testinfra_hosts = \
 
 def test_command(Command):
     assert Command('i3 --version').rc == 0
+    assert Command('xrdb -help').rc == 1
