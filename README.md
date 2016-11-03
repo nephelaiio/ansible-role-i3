@@ -5,11 +5,6 @@ nephelaiio.i3
 
 An [ansible role](https://galaxy.ansible.com/nephelaiio/i3) to install and configure i3
 
-Requirements
-------------
-
-Please make sure your environment has [docker](https://www.docker.com) installed in order to run role validation tests. Additional python dependencies are listed in the [requirements file](/requirements.txt)
-
 Role Variables
 --------------
 
@@ -32,6 +27,8 @@ Including an example of how to use your role (for instance, with variables passe
 
 Testing
 -------
+
+Please make sure your environment has [docker](https://www.docker.com) installed in order to run role validation tests. Additional python dependencies are listed in the [requirements file](/requirements.txt)
 
 Role is tested against the following distributions (docker images):
   * Ubuntu Xenial
