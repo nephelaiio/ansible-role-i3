@@ -13,9 +13,9 @@
 
 # Install packages
 - name: install i3 packages
-  package: >
-    name="{{ i3_packages }}"
-    state="{{ i3_packages_state }}"
+  package:
+    name: "{{ i3_packages }}"
+    state: "{{ i3_packages_state }}"
   become: yes
   when: ansible_os_family != 'RedHat'
   tags:
@@ -23,10 +23,23 @@
 
 # Set up configuration directory
 - name: create i3 configuration directory
-  file: >
-    dest="~{{ item }}/{{ i3_conf_dir }}"
-    state=directory
+  file:
+    dest: "~{{ item }}/{{ i3_conf_dir }}"
+    state: directory
   become: no
+  with_items: "{{ i3_users }}"
+  tags:
+    - "i3"
+    - "i3_conf"
+
+
+# Set up pulseaudio group memberships
+- name: set up pulseaudio group memberships
+  user:
+    append: yes
+    groups: audio
+    user: "{{ item }}"
+  become: yes
   with_items: "{{ i3_users }}"
   tags:
     - "i3"
@@ -35,9 +48,9 @@
 
 # Set up configuration file
 - name: configure i3
-  template: >
-    src="{{ i3_conf_template }}"
-    dest="~{{ item }}/{{ i3_conf_dir }}/{{ i3_conf_file }}"
+  template:
+    src: "{{ i3_conf_template }}"
+    dest: "~{{ item }}/{{ i3_conf_dir }}/{{ i3_conf_file }}"
   become: no
   with_items: "{{ i3_users }}"
   tags:
@@ -46,13 +59,13 @@
 
 # Set up xinitrc
 - name: set up xinitrc
-  lineinfile: >
-    dest="~{{ item }}/.xinitrc"
-    state=present
-    create=yes
-    insertafter=EOF
-    regexp="^exec .*"
-    line="exec i3"
+  lineinfile:
+    dest: "~{{ item }}/.xinitrc"
+    state: present
+    create: yes
+    insertafter: EOF
+    regexp: "^exec .*"
+    line: "exec i3"
   become: no
   with_items: "{{ i3_users }}"
   tags:
