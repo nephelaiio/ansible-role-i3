@@ -135,9 +135,9 @@ bar {
 }
 
 # volume control
-bindsym $mod+period exec --no-startup-id pactl set-sink-volume 1 +5%
-bindsym $mod+comma exec --no-startup-id pactl set-sink-volume 1 -5%
-bindsym $mod+m exec --no-startup-id pactl set-sink-mute 1 toggle
+bindsym $mod+period exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym $mod+comma exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym $mod+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # hide window borders for new windows
 new_window  none
