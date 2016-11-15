@@ -24,9 +24,10 @@
 # Set up configuration directory
 - name: create i3 configuration directory
   file:
-    dest: "~{{ item }}/{{ i3_conf_dir }}"
+    dest: "~/{{ i3_conf_dir }}"
     state: directory
-  become: no
+  become: yes
+  become_user: "{{ item }}"
   with_items: "{{ i3_users }}"
   tags:
     - "i3"
@@ -50,8 +51,9 @@
 - name: configure i3
   template:
     src: "{{ i3_conf_template }}"
-    dest: "~{{ item }}/{{ i3_conf_dir }}/{{ i3_conf_file }}"
-  become: no
+    dest: "~/{{ i3_conf_dir }}/{{ i3_conf_file }}"
+  become: yes
+  become_user: "{{ item }}"
   with_items: "{{ i3_users }}"
   tags:
     - "i3"
@@ -60,13 +62,14 @@
 # Set up xinitrc
 - name: set up xinitrc
   lineinfile:
-    dest: "~{{ item }}/.xinitrc"
+    dest: "~/.xinitrc"
     state: present
     create: yes
     insertafter: EOF
     regexp: "^exec .*"
     line: "exec i3"
-  become: no
+  become: yes
+  become_user: "{{ item }}"
   with_items: "{{ i3_users }}"
   tags:
     - "i3"
