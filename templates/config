@@ -147,4 +147,7 @@ new_float   none
 bindsym $mod+Shift+Return exec "scrot /tmp/i3lock.png ; i3lock -i /tmp/i3lock.png"
 
 # custom window configurations
-for_window [title="Welcome to Pycharm"] floating disable
+for_window [title="Welcome to IntelliJ IDEA"] floating disable
+for_window [title="Welcome to PyCharm"] floating disable
+for_window [title="Welcome to RubyMine"] floating disable
+for_window [title="Welcome to WebStorm"] floating disable
