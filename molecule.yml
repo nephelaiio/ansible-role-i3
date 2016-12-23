@@ -24,9 +24,9 @@ docker:
 
 molecule:
     ignore_paths:
-		- .git
-		- .ropeproject
-		- .molecule
+        - .git
+        - .ropeproject
+        - .molecule
 
 dependency:
     name: galaxy
