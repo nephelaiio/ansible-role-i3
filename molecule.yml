@@ -23,7 +23,7 @@ docker:
               - test
 
 molecule:
-	ignore_paths:
+    ignore_paths:
 		- .git
 		- .ropeproject
 		- .molecule
