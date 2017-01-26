@@ -106,10 +106,10 @@ bindsym $mod+Shift+e exit
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
+        # Pressing left will shrink the window width.
+        # Pressing right will grow the window width.
+        # Pressing up will shrink the window height.
+        # Pressing down will grow the windows height.
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
@@ -128,7 +128,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
+# start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
   status_command i3status
@@ -145,3 +145,9 @@ new_float   none
 
 # lock screen
 bindsym $mod+Shift+Return exec "scrot /tmp/i3lock.png ; i3lock -i /tmp/i3lock.png"
+
+# custom window configurations
+for_window [title="Welcome to IntelliJ IDEA"] floating disable
+for_window [title="Welcome to PyCharm"] floating disable
+for_window [title="Welcome to RubyMine"] floating disable
+for_window [title="Welcome to WebStorm"] floating disable

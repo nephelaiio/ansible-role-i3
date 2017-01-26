@@ -3,27 +3,36 @@ driver:
   name: docker
 
 docker:
-  containers:
-      - name: ansible-i3-jessie
-        image: debian
-        image_version: jessie
-        ansible_groups:
-          - test
-      - name: ansible-i3-xenial
-        image: ubuntu
-        image_version: xenial
-        ansible_groups:
-          - test
-      - name: ansible-i3-arch
-        image: pritunl/archlinux
-        image_version: latest
-        dockerfile: docker/arch.dockerfile
-        command: /bin/bash
-        ansible_groups:
-          - test
+    containers:
+        - name: ansible-i3-jessie
+          image: debian
+          image_version: jessie
+          ansible_groups:
+              - test
+        - name: ansible-i3-xenial
+          image: ubuntu
+          image_version: xenial
+          ansible_groups:
+              - test
+        - name: ansible-i3-arch
+          image: pritunl/archlinux
+          image_version: latest
+          dockerfile: docker/arch.dockerfile
+          command: /bin/bash
+          ansible_groups:
+              - test
 
-ansible:
-  requirements_file: dependencies.yml
+molecule:
+    ignore_paths:
+        - .git
+        - .ropeproject
+        - .molecule
+
+dependency:
+    name: galaxy
+    requirements_file: dependencies.yml
+    options:
+        force: True
 
 verifier:
-  name: testinfra
+    name: testinfra
