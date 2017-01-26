@@ -6,3 +6,4 @@ i3_packages:
   - scrot
   - pulseaudio
   - xorg-server
+  - dmenu
