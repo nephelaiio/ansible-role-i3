@@ -32,10 +32,8 @@ molecule:
 dependency:
   name: galaxy
   requirements_file: dependencies.yml
-  options:
-      force: True
 
 verifier:
   name: testinfra
   options: 
-  ignore: roles
+    ignore: roles
