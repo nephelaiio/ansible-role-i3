@@ -16,7 +16,7 @@ docker:
       ansible_groups:
         - test
     - name: ansible-i3-arch
-      image: pritunl/archlinux
+      image: base/archlinux
       image_version: latest
       dockerfile: docker/arch.dockerfile
       command: /bin/bash
