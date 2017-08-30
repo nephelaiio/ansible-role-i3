@@ -144,7 +144,9 @@ new_window  none
 new_float   none
 
 # lock screen
+{% if ansible_os_family != 'RedHat' %}
 bindsym $mod+Shift+Return exec "scrot /tmp/i3lock.png ; i3lock -i /tmp/i3lock.png"
+{% endif %}
 
 # custom window configurations
 for_window [title="Welcome to IntelliJ IDEA"] floating disable

@@ -1,3 +1,4 @@
+---
 galaxy_info:
   author: Ted Cook
   description: An Ansible role to install and configure i3
@@ -6,18 +7,20 @@ galaxy_info:
   min_ansible_version: 2.1
 
   platforms:
-  - name: Archlinux
-    versions:
-      - all
-  - name: Ubuntu
-    versions:
-    - xenial
-  - name: Debian
-    versions:
-    - jessie
-
+    - name: EL
+      versions:
+        - 7
+    - name: Archlinux
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - xenial
+    - name: Debian
+      versions:
+        - jessie
   galaxy_tags:
     - i3
 
 dependencies:
-  - { role: nephelaiio.rxvt-unicode }
+  - role: nephelaiio.rxvt-unicode

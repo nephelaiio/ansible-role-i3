@@ -1,0 +1,8 @@
+---
+i3_packages:
+  - epel-release
+  - dnf
+  - dnf-plugins-core
+  - pulseaudio
+  - pulseaudio-utils
+  - xorg-x11-server-Xorg

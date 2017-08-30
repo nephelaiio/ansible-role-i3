@@ -1,76 +1,76 @@
 ---
-# Include variable definitions
-- name: "include variable overrides"
+- name: include variable overrides
   include_vars: "{{ item }}"
   with_first_found:
     - files:
-      - "vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
-      - "vars/{{ ansible_distribution }}.yml"
-      - "vars/{{ ansible_os_family }}.yml"
+        - "vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+        - "vars/{{ ansible_distribution }}.yml"
+        - "vars/{{ ansible_os_family }}.yml"
       skip: true
   tags:
     - i3
 
-# Install packages
-- name: install i3 packages
+- name: install packages
   package:
     name: "{{ i3_packages }}"
     state: "{{ i3_packages_state }}"
   become: yes
-  when: ansible_os_family != 'RedHat'
   tags:
     - i3
 
-# Set up configuration directory
-- name: create i3 configuration directory
-  file:
-    dest: "~/{{ i3_conf_dir }}"
-    state: directory
+- name: install dnf repository
+  command: "dnf config-manager --add-repo {{ repo }}"
+  args:
+    creates: "/etc/yum.repos.d/{{ repo | basename }}"
+    warn: no
+  vars:
+    repo: https://copr.fedorainfracloud.org/coprs/admiralnemo/i3wm-el7/repo/epel-7/admiralnemo-i3wm-el7-epel-7.repo
+  when: ansible_os_family == 'RedHat'
+
+- name: install dnf packages
+  dnf:
+    name: "{{ item }}"
+    state: "{{ i3_packages_state }}"
   become: yes
+  with_items:
+    - dmenu
+    - i3
+    - i3status
+  vars:
+    repo: https://copr.fedorainfracloud.org/coprs/admiralnemo/i3wm-el7/repo/epel-7/admiralnemo-i3wm-el7-epel-7.repo
+  when: ansible_os_family == 'RedHat'
   tags:
-    - "i3"
-    - "i3_conf"
+    - i3
 
-# Inspect playbook user
-- name: inspect playbook user
-  changed_when: False
-  command: whoami
-  register: i3_user
+- name: create configuration directory
+  file:
+    dest: "{{ i3_conf_dir }}"
+    state: directory
   tags:
-    - "i3"
-    - "i3_conf"
+    - i3
 
-# Set up pulseaudio group memberships
 - name: set up pulseaudio group memberships
   user:
     append: yes
     groups: audio
-    user: "{{ i3_user.stdout }}"
-  become: yes
+    user: "{{ lookup('env','USER')}}"
   tags:
-    - "i3"
-    - "i3_conf"
+    - i3
 
-# Set up configuration file
 - name: configure i3
   template:
     src: "{{ i3_conf_template }}"
-    dest: "~/{{ i3_conf_dir }}/{{ i3_conf_file }}"
-  become: yes
+    dest: "{{ i3_conf_dir }}/{{ i3_conf_file }}"
   tags:
-    - "i3"
-    - "i3_conf"
+    - i3
 
-# Set up xinitrc
 - name: set up xinitrc
   lineinfile:
-    dest: "~/.xinitrc"
+    dest: ~/.xinitrc
     state: present
     create: yes
     insertafter: EOF
     regexp: "^exec .*"
     line: "exec i3"
-  become: yes
   tags:
-    - "i3"
-    - "i3_conf"
+    - i3
