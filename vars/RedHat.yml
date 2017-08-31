@@ -6,3 +6,10 @@ i3_packages:
   - pulseaudio
   - pulseaudio-utils
   - xorg-x11-server-Xorg
+
+i3_dnf_repo: https://copr.fedorainfracloud.org/coprs/admiralnemo/i3wm-el7/repo/epel-7/admiralnemo-i3wm-el7-epel-7.repo
+
+i3_dnf_packages: 
+  - dmenu
+  - i3
+  - i3status
