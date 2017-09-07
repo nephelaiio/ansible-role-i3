@@ -24,7 +24,7 @@
     creates: "/etc/yum.repos.d/{{ repo | basename }}"
     warn: no
   vars:
-    repo: https://copr.fedorainfracloud.org/coprs/admiralnemo/i3wm-el7/repo/epel-7/admiralnemo-i3wm-el7-epel-7.repo
+    repo: "{{ i3_dnf_repo }}"
   when: ansible_os_family == 'RedHat'
 
 - name: install dnf packages
@@ -32,12 +32,7 @@
     name: "{{ item }}"
     state: "{{ i3_packages_state }}"
   become: yes
-  with_items:
-    - dmenu
-    - i3
-    - i3status
-  vars:
-    repo: https://copr.fedorainfracloud.org/coprs/admiralnemo/i3wm-el7/repo/epel-7/admiralnemo-i3wm-el7-epel-7.repo
+  with_items: "{{ i3_dnf_packages }}"
   when: ansible_os_family == 'RedHat'
   tags:
     - i3
