@@ -54,6 +54,7 @@
     append: yes
     groups: audio
     user: "{{ lookup('env','USER')}}"
+  become: yes
   tags:
     - i3
 
