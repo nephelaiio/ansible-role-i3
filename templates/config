@@ -145,7 +145,7 @@ new_float   none
 
 # lock screen
 {% if ansible_os_family != 'RedHat' %}
-bindsym $mod+Shift+Return exec "scrot /tmp/i3lock.png ; i3lock -i /tmp/i3lock.png"
+bindsym $mod+Shift+Return exec "scrot /tmp/i3lock.png ; convert /tmp/i3lock.png -type Grayscale -blur 2,2 /tmp/i3lock.png ; i3lock -i /tmp/i3lock.png"
 {% endif %}
 
 # custom window configurations
