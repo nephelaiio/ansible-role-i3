@@ -2,6 +2,7 @@ nephelaiio.i3
 =========
 
 [![Build Status](https://travis-ci.org/nephelaiio/ansible-role-i3.svg?branch=master)](https://travis-ci.org/nephelaiio/ansible-role-i3)
+[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-systemd--service-blue.svg)](https://galaxy.ansible.com/nephelaiio/i3/)
 
 An [ansible role](https://galaxy.ansible.com/nephelaiio/i3) to install and configure i3
 
