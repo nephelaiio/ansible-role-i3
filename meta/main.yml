@@ -24,3 +24,4 @@ galaxy_info:
 
 dependencies:
   - role: nephelaiio.rxvt-unicode
+    versioin: 1.0.0
