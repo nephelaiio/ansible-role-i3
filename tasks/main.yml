@@ -18,25 +18,6 @@
   tags:
     - i3
 
-- name: install dnf repository
-  command: "dnf config-manager --add-repo {{ repo }}"
-  args:
-    creates: "/etc/yum.repos.d/{{ repo | basename }}"
-    warn: no
-  vars:
-    repo: "{{ i3_dnf_repo }}"
-  when: ansible_os_family == 'RedHat'
-
-- name: install dnf packages
-  dnf:
-    name: "{{ item }}"
-    state: "{{ i3_packages_state }}"
-  become: yes
-  with_items: "{{ i3_dnf_packages }}"
-  when: ansible_os_family == 'RedHat'
-  tags:
-    - i3
-
 - name: create configuration directory
   file:
     dest: "{{ i3_conf_dir }}"

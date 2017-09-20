@@ -25,7 +25,6 @@ Please make sure your environment has [docker](https://www.docker.com) installed
 
 Role is tested against the following distributions (docker images):
   * Ubuntu Xenial
-  * CentOS 7
   * Debian Stretch
   * Arch Linux
 
