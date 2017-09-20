@@ -7,23 +7,17 @@
         - "vars/{{ ansible_distribution }}.yml"
         - "vars/{{ ansible_os_family }}.yml"
       skip: true
-  tags:
-    - i3
 
 - name: install packages
   package:
     name: "{{ i3_packages }}"
     state: "{{ i3_packages_state }}"
   become: yes
-  tags:
-    - i3
 
 - name: create configuration directory
   file:
     dest: "{{ i3_conf_dir }}"
     state: directory
-  tags:
-    - i3
 
 - name: set up pulseaudio group memberships
   user:
@@ -31,15 +25,11 @@
     groups: audio
     user: "{{ lookup('env','USER')}}"
   become: yes
-  tags:
-    - i3
 
 - name: configure i3
   template:
     src: "{{ i3_conf_template }}"
     dest: "{{ i3_conf_dir }}/{{ i3_conf_file }}"
-  tags:
-    - i3
 
 - name: set up xinitrc
   lineinfile:
@@ -49,5 +39,3 @@
     insertafter: EOF
     regexp: "^exec .*"
     line: "exec i3"
-  tags:
-    - i3
