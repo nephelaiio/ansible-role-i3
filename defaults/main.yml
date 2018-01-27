@@ -4,9 +4,8 @@ i3_packages:
   - i3lock
   - i3status
   - pulseaudio
-  - pulseaudio-utils
   - scrot
-  - xserver-xorg
+  - xorg-server
   - imagemagick
 
 i3_packages_state: present
