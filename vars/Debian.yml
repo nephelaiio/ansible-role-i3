@@ -5,5 +5,5 @@ i3_packages_default:
   - i3status
   - pulseaudio
   - scrot
-  - xorg-xserver
+  - xorg
   - imagemagick
