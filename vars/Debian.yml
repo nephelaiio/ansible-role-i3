@@ -1,0 +1,9 @@
+---
+i3_packages_default:
+  - i3
+  - i3lock
+  - i3status
+  - pulseaudio
+  - scrot
+  - xorg-xserver
+  - imagemagick

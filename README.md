@@ -7,6 +7,28 @@ An [ansible role](https://galaxy.ansible.com/nephelaiio/i3) to install and confi
 
 ## Role Variables
 
+```
+i3_packages: None
+```
+Override list of installation packages for the target operating system - see [vars](/vars) files for distribution default values
+
+```
+i3_packages_state: present
+```
+The state of i3 packages
+```
+i3_conf_template: config
+```
+A jinja template to create the configuration
+```
+i3_conf_dir: ~/.config/i3
+```
+The path for generated i3 configuration
+```
+i3_conf_file: config
+```
+The filename for generated i3 configuration file
+
 Please refer to the [defaults file](/defaults/main.yml) for an up to date list of input parameters.
 
 ## Example Playbook

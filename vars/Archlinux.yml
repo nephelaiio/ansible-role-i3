@@ -1,5 +1,5 @@
 ---
-i3_packages:
+i3_packages_default:
   - i3
   - scrot
   - pulseaudio
