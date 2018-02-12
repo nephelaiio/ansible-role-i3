@@ -10,8 +10,6 @@ platforms:
     image: debian:stretch
   - name: ubuntu
     image: ubuntu:xenial
-  - name: arch
-    image: base/archlinux:latest
 provisioner:
   name: ansible
   lint:
