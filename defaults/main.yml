@@ -1,5 +1,5 @@
 ---
-#i3_packages: []
+# i3_packages: []
 i3_packages_state: present
 i3_conf_template: config
 i3_conf_dir: ~/.config/i3
