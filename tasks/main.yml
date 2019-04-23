@@ -19,13 +19,6 @@
     dest: "{{ i3_conf_dir }}"
     state: directory
 
-- name: set up pulseaudio group memberships
-  user:
-    append: yes
-    groups: audio
-    user: "{{ lookup('env','USER')}}"
-  become: yes
-
 - name: configure i3
   template:
     src: "{{ i3_conf_template }}"
