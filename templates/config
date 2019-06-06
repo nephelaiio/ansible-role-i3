@@ -14,7 +14,8 @@ exec /usr/bin/pasystray
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt -e tmux
+bindsym $mod+Escape exec urxvt -e tmux
+bindsym $mod+Return exec gnome-terminal -e tmux --hide-menubar
 
 # kill focused window
 bindsym $mod+Shift+q kill
