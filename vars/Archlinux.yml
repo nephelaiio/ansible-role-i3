@@ -11,4 +11,5 @@ i3_packages_default:
   - remmina
   - blueman
   - rofi
+  - gnome-terminal
   - ttf-inconsolata
