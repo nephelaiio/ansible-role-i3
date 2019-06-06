@@ -6,10 +6,12 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: debian
+  - name: stretch
     image: debian:stretch
-  - name: ubuntu
+  - name: xenial
     image: ubuntu:xenial
+  - name: bionic
+    image: ubuntu:bionic
 provisioner:
   name: ansible
   lint:
