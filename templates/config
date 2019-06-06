@@ -4,6 +4,12 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:inconsolata 10
 
+# Activate Applets
+exec autorandr -c
+exec blueman-applet &
+exec remmina -i &
+exec /usr/bin/pasystray
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -153,3 +159,6 @@ for_window [title="Welcome to IntelliJ IDEA"] floating disable
 for_window [title="Welcome to PyCharm"] floating disable
 for_window [title="Welcome to RubyMine"] floating disable
 for_window [title="Welcome to WebStorm"] floating disable
+
+# rofi bindings
+bindsym $mod+grave exec "rofi -show-icons -modi combi -show combi -combi-modi run,drun"

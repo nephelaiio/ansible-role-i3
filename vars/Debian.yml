@@ -6,4 +6,10 @@ i3_packages_default:
   - pulseaudio
   - scrot
   - xorg
+  - suckless-tools
+  - pasystray
+  - remmina
+  - blueman
+  - rofi
+  - fonts-inconsolata
   - imagemagick
