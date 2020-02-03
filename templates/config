@@ -16,6 +16,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec urxvt -e tmux
 
+# start a browser
+bindsym $mod+Shift+Enter exec gnome-terminal
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -25,7 +28,10 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
+
+# start rofi (a program launcher)
+bindsym $mod+grave exec "rofi -theme solarized -show ssh"
+bindsym $mod+space exec "rofi -theme solarized -show run"
 
 # change focus
 bindsym $mod+h focus left
@@ -157,6 +163,3 @@ for_window [title="Welcome to IntelliJ IDEA"] floating disable
 for_window [title="Welcome to PyCharm"] floating disable
 for_window [title="Welcome to RubyMine"] floating disable
 for_window [title="Welcome to WebStorm"] floating disable
-
-# rofi bindings
-bindsym $mod+grave exec "rofi -theme solarized -show-icons"

@@ -34,6 +34,22 @@
   tags:
     - configure
 
+- name: configure i3 xresource settings
+  template:
+    src: "{{ i3_xresources_conf_template }}"
+    dest: "~/{{ i3_xresources_conf_file }}"
+  tags:
+    - configure
+
+- name: configure xresources
+  lineinfile:
+    dest: "~/{{ i3_xresources_file }}"
+    state: present
+    create: yes
+    insertbefore: "^#include"
+    regexp: '#include ".*{{ i3_xresources_conf_file }}.*"'
+    line: '#include "{{ i3_xresources_conf_file }}"'
+
 - name: configure rofi launcher
   template:
     src: "{{ i3_rofi_conf_template }}"

@@ -7,3 +7,6 @@ i3_conf_file: config
 i3_rofi_conf_template: rofi
 i3_rofi_conf_dir: ~/.config/rofi
 i3_rofi_conf_file: config
+i3_xresources_conf_template: xresources
+i3_xresources_conf_file: .Xresources.i3
+i3_xresources_file: .Xresources
