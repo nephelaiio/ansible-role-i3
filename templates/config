@@ -5,6 +5,7 @@ set $mod Mod4
 font pango:inconsolata 10
 
 # Activate Applets
+exec emacs --daemon
 exec autorandr -c
 exec blueman-applet &
 exec remmina -i &
@@ -13,11 +14,14 @@ exec /usr/bin/pasystray
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# start an editor
+bindsym $mod+p exec emacsclient -c ~/
+
 # start a terminal
 bindsym $mod+Return exec urxvt -e tmux
 
 # start a browser
-bindsym $mod+Shift+Enter exec gnome-terminal
+bindsym $mod+Shift+Return exec google-chrome
 
 # kill focused window
 bindsym $mod+Shift+q kill
