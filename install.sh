@@ -24,12 +24,14 @@ for r in ${requirements[@]}; do
 done
 
 # create temp dir
-tmpdir="$(mktemp -d -t rxvt-unicode-XXXXXXXXXX)"
+tmpdir="$(mktemp -d -t i3-XXXXXXXXXX)"
 
 # install role locally
 pushd $tmpdir
 git clone -q $git_clone_url
 pushd $(basename $git_clone_url .git)/install
+ansible-galaxy install -r ../requirements.yml --force
+ansible-playbook --become --connection=local -i inventory playbook.yml -t install
 ansible-playbook --connection=local -i inventory playbook.yml
 popd
 popd
