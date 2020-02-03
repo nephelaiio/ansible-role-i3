@@ -51,7 +51,7 @@ for r in ${requirements[@]}; do
 done
 
 # create temp dir
-tmpdir="$(mktemp -d -t i3-XXXXXXXXXX)"
+tmpdir="$(mktemp -d)"
 
 # perform local role install
 if [ -z "${LOCAL}" ]; then
