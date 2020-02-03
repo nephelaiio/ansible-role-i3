@@ -9,3 +9,10 @@ rofi.kb-primary-paste:               Control+Shift+y,Control+Shift+v,Shift+Inser
 rofi.kb-mode-next:                   Shift+Right,Control+Tab,Control+l
 rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab,Control+h
 rofi.kb-remove-char-back:            BackSpace
+
+# see https://github.com/davatorium/rofi/issues/183
+rofi.terminal: urxvt -e tmux new-session
+rofi.ssh-client: ssh
+rofi.ssh-command: {terminal} {ssh-client} {host}
+rofi.run-command: {cmd}
+rofi.run-shell-command: {terminal} {cmd}
