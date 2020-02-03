@@ -14,8 +14,7 @@ exec /usr/bin/pasystray
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Escape exec urxvt -e tmux
-bindsym $mod+Return exec gnome-terminal -e tmux --hide-menubar
+bindsym $mod+Return exec urxvt -e tmux
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -26,6 +25,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -67,9 +67,6 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -152,7 +149,7 @@ new_float   none
 
 # lock screen
 {% if ansible_os_family != 'RedHat' %}
-bindsym $mod+Shift+Return exec "scrot /tmp/i3lock.png ; convert /tmp/i3lock.png -type Grayscale -blur 2,2 /tmp/i3lock.png ; i3lock -i /tmp/i3lock.png"
+bindsym $mod+Escape exec "scrot /tmp/i3lock.png ; convert /tmp/i3lock.png -type Grayscale -blur 4,4 /tmp/i3lock.png ; i3lock -i /tmp/i3lock.png"
 {% endif %}
 
 # custom window configurations
@@ -162,4 +159,4 @@ for_window [title="Welcome to RubyMine"] floating disable
 for_window [title="Welcome to WebStorm"] floating disable
 
 # rofi bindings
-bindsym $mod+grave exec "rofi -show-icons -modi combi -show combi -combi-modi run,drun"
+bindsym $mod+grave exec "rofi -theme solarized -show-icons"

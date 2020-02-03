@@ -17,10 +17,13 @@
   tags:
     - install
 
-- name: create configuration directory
+- name: create configuration directories
   file:
-    dest: "{{ i3_conf_dir }}"
+    dest: "{{ item }}"
     state: directory
+  loop:
+    - "{{ i3_conf_dir }}"
+    - "{{ i3_rofi_conf_dir }}"
   tags:
     - configure
 
@@ -28,6 +31,13 @@
   template:
     src: "{{ i3_conf_template }}"
     dest: "{{ i3_conf_dir }}/{{ i3_conf_file }}"
+  tags:
+    - configure
+
+- name: configure rofi launcher
+  template:
+    src: "{{ i3_rofi_conf_template }}"
+    dest: "{{ i3_rofi_conf_dir }}/{{ i3_rofi_conf_file }}"
   tags:
     - configure
 
