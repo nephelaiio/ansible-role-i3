@@ -5,6 +5,14 @@
 
 An [ansible role](https://galaxy.ansible.com/nephelaiio/i3) to install and configure i3
 
+## Local install
+
+Execute the following from the command line shell
+
+```
+curl -s https://raw.githubusercontent.com/nephelaiio/ansible-role-rxvt-unicode/master/install.sh | bash
+```
+
 ## Role Variables
 
 ```
