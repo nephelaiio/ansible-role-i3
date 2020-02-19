@@ -10,6 +10,7 @@ exec autorandr -c
 exec blueman-applet &
 exec remmina -i &
 exec /usr/bin/pasystray
+exec xrdb ~/.Xresources
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
