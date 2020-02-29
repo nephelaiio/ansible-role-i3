@@ -49,6 +49,8 @@
     insertbefore: "^#include"
     regexp: '#include ".*{{ i3_xresources_conf_file }}.*"'
     line: '#include "{{ i3_xresources_conf_file }}"'
+  tags:
+    - configure
 
 - name: configure rofi launcher
   template:
