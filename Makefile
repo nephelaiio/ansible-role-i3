@@ -1,3 +1,5 @@
+.PHONY: install lint yaml-lint ansible-lint
+
 install:
 	bash install.sh --local
 
