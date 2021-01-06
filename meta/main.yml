@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: i3
   author: Ted Cook
   description: An Ansible role to install and configure i3
   license: MIT
@@ -7,16 +8,16 @@ galaxy_info:
   min_ansible_version: 2.1
 
   platforms:
-    - name: Archlinux
-      versions:
-        - all
     - name: Ubuntu
       versions:
+        - focal
         - bionic
         - xenial
+    - name: Debian
+      versions:
+        - buster
   galaxy_tags:
     - i3
 
 dependencies:
   - role: nephelaiio.rxvt-unicode
-    version: 1.0.5

@@ -1,7 +1,7 @@
 # nephelaiio.i3
 
-[![Build Status](https://travis-ci.org/nephelaiio/ansible-role-i3.svg?branch=master)](https://travis-ci.org/nephelaiio/ansible-role-i3)
-[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-systemd--service-blue.svg)](https://galaxy.ansible.com/nephelaiio/i3/)
+[![Build Status](https://github.com/nephelaiio/ansible-role-i3/workflows/CI/badge.svg)](https://github.com/nephelaiio/ansible-role-i3/actions)
+[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-nephelaiio.i3-blue.svg)](https://galaxy.ansible.com/nephelaiio/i3/)
 
 An [ansible role](https://galaxy.ansible.com/nephelaiio/i3) to install and configure i3
 
@@ -54,9 +54,10 @@ Including an example of how to use your role (for instance, with variables passe
 Please make sure your environment has [docker](https://www.docker.com) installed in order to run role validation tests. Additional python dependencies are listed in the [requirements file](https://github.com/nephelaiio/ansible-role-requirements/blob/master/requirements.txt)
 
 Role is tested against the following distributions (docker images):
+  * Ubuntu Focal
   * Ubuntu Bionic
   * Ubuntu Xenial
-  * Archlinux
+  * Debian Buster
 
 You can test the role directly from sources using command ` molecule test `
 
