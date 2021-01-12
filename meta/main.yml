@@ -20,4 +20,5 @@ galaxy_info:
     - i3
 
 dependencies:
+  - role: nephelaiio.plugins
   - role: nephelaiio.rxvt-unicode
