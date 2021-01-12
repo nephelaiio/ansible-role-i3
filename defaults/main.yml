@@ -1,5 +1,37 @@
 ---
 # i3_packages: []
+i3_packages_default:
+  default:
+    - i3
+  debian:
+    - i3
+    - i3lock
+    - i3status
+    - pulseaudio
+    - scrot
+    - xorg
+    - suckless-tools
+    - pasystray
+    - remmina
+    - blueman
+    - rofi
+    - gnome-terminal
+    - fonts-inconsolata
+    - imagemagick
+  archlinux:
+    - i3-wm
+    - i3lock
+    - i3status
+    - pulseaudio
+    - scrot
+    - xorg-server
+    - dmenu
+    - pasystray
+    - remmina
+    - blueman
+    - rofi
+    - gnome-terminal
+    - ttf-inconsolata
 i3_packages_state: present
 i3_conf_template: config
 i3_conf_dir: ~/.config/i3

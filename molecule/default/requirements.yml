@@ -1,1 +1,2 @@
-../../requirements.yml
+---
+- nephelaiio.rxvt-unicode
