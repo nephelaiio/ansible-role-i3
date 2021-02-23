@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   role_name: i3
-  author: Ted Cook
+  author: nephelaiio
   description: An Ansible role to install and configure i3
   license: MIT
 
