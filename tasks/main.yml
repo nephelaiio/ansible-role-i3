@@ -33,6 +33,7 @@
   template:
     src: "{{ i3_conf_template }}"
     dest: "{{ i3_conf_dir }}/{{ i3_conf_file }}"
+    force: "{{ i3_conf_force }}"
   tags:
     - configure
 
@@ -40,6 +41,7 @@
   template:
     src: "{{ i3_xresources_conf_template }}"
     dest: "~/{{ i3_xresources_conf_file }}"
+    force: "{{ i3_conf_force }}"
   tags:
     - configure
 
