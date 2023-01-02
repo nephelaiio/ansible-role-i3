@@ -42,9 +42,9 @@ do
 done
 
 # verify requirements
-requirements=(ansible-playbook git)
-for r in ${requirements[@]}; do
-    if ! r_path=$(type -p $r); then
+requirements=(pipx git)
+for r in "${requirements[@]}"; do
+    if ! type -p $r > /dev/null; then
         echo "$r executable not found in path, aborting"
         exit $KO
     fi
@@ -59,12 +59,12 @@ if [ -z "${LOCAL}" ]; then
 else
     cp -a . $tmpdir
 fi
-pushd $tmpdir/install
-ansible-galaxy role install nephelaiio.i3 --force
-ansible-playbook --become --connection=local -i inventory playbook.yml -t install
-ansible-playbook --connection=local -i inventory playbook.yml ${POSITIONAL[@]}
-popd
+pushd "$tmpdir/install" || exit
+pipx run --spec ansible ansible-galaxy role install nephelaiio.i3 --force
+pipx run --spec ansible ansible-playbook --become --connection=local -i inventory playbook.yml -t install
+pipx run --spec ansible ansible-playbook --connection=local -i inventory playbook.yml ${POSITIONAL[@]}
+popd || exit
 
 # purge temp files
-rm -rf $tmpdir
+rm -rf "$tmpdir"
 exit $OK
