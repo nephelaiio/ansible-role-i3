@@ -60,6 +60,7 @@ else
     cp -a . $tmpdir
 fi
 pushd "$tmpdir/install" || exit
+pipx inject ansible MarkupSafe==2.0.1 netaddr
 pipx run --spec ansible ansible-galaxy role install nephelaiio.i3 --force
 pipx run --spec ansible ansible-playbook --become --connection=local -i inventory playbook.yml -t install
 pipx run --spec ansible ansible-playbook --connection=local -i inventory playbook.yml ${POSITIONAL[@]}
