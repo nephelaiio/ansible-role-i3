@@ -60,10 +60,14 @@ else
     cp -a . $tmpdir
 fi
 pushd "$tmpdir/install" || exit
-pipx run poetry install
-pipx run poetry run ansible-galaxy role install nephelaiio.i3 --force
-pipx run poetry run ansible-playbook --become --connection=local -i inventory playbook.yml -t install
-pipx run poetry run ansible-playbook --connection=local -i inventory playbook.yml ${POSITIONAL[@]}
+POETRY=poetry
+if ! type poetry > /dev/null; then
+    POETRY="pipx run $POETRY"
+fi
+$POETRY install
+$POETRY run -- ansible-galaxy role install nephelaiio.i3 --force
+$POETRY run -- ansible-playbook --become --connection=local -i inventory playbook.yml -t install
+$POETRY run -- ansible-playbook --connection=local -i inventory playbook.yml ${POSITIONAL[@]}
 popd || exit
 
 # purge temp files
