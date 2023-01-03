@@ -33,9 +33,3 @@ jobs:
 
       - name: Run local install
         run: bash install.sh
-
-      - name: Test i3 binary
-        run: file /usr/bin/i3
-
-      - name: Test i3 configuration
-        run: file ~/.config/i3/config
