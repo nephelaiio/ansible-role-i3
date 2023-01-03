@@ -47,6 +47,7 @@ jobs:
     strategy:
       matrix:
         image:
+          - ubuntu2204
           - ubuntu2004
           - debian11
     steps:
