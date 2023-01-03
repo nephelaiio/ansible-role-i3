@@ -5,8 +5,8 @@
 
   tasks:
 
-    - name: verify i3 command
+    - name: Verify i3 command
       ansible.builtin.command: i3 --version
 
-    - name: verify pactl command
+    - name: Verify pactl command
       ansible.builtin.command: pactl --version

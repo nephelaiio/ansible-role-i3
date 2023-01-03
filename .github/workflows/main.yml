@@ -31,12 +31,14 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install test dependencies.
-        run: pip3 install ansible-lint[community,yamllint]
+      - name: Install poetry
+        run: pip3 install poetry
+
+      - name: Install project dependencies
+        run: poetry install
 
       - name: Lint code.
-        run: |
-          ansible-lint .
+        run: poetry run ansible-lint .
 
   molecule:
 
@@ -64,8 +66,11 @@ jobs:
       - name: Install poetry
         run: pip3 install poetry
 
+      - name: Install project dependencies
+        run: poetry install
+
       - name: Run Molecule tests
-        run: molecule test
+        run: poetry run molecule test
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'

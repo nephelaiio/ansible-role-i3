@@ -1,6 +1,6 @@
 ---
-- name: set variable overrides
-  set_fact:
+- name: Set variable overrides
+  ansible.builtin.set_fact:
     _i3_packages: "{{ i3_packages | default(i3_packages_default | sorted_get(overrides)) }}"
   vars:
     overrides:
@@ -12,15 +12,15 @@
   tags:
     - always
 
-- name: install packages
-  package:
+- name: Install packages
+  ansible.builtin.package:
     name: "{{ _i3_packages }}"
     state: "{{ i3_packages_state | default('present') }}"
   tags:
     - install
 
-- name: create configuration directories
-  file:
+- name: Create configuration directories
+  ansible.builtin.file:
     dest: "{{ item }}"
     state: directory
   loop:
@@ -29,24 +29,24 @@
   tags:
     - configure
 
-- name: configure i3
-  template:
+- name: Configure i3
+  ansible.builtin.template:
     src: "{{ i3_conf_template }}"
     dest: "{{ i3_conf_dir }}/{{ i3_conf_file }}"
     force: "{{ i3_conf_force }}"
   tags:
     - configure
 
-- name: configure i3 xresource settings
-  template:
+- name: Configure i3 xresource settings
+  ansible.builtin.template:
     src: "{{ i3_xresources_conf_template }}"
     dest: "~/{{ i3_xresources_conf_file }}"
     force: "{{ i3_conf_force }}"
   tags:
     - configure
 
-- name: configure xresources
-  lineinfile:
+- name: Configure xresources
+  ansible.builtin.lineinfile:
     dest: "~/{{ i3_xresources_file }}"
     state: present
     create: yes
@@ -56,15 +56,15 @@
   tags:
     - configure
 
-- name: configure rofi launcher
-  template:
+- name: Configure rofi launcher
+  ansible.builtin.template:
     src: "{{ i3_rofi_conf_template }}"
     dest: "{{ i3_rofi_conf_dir }}/{{ i3_rofi_conf_file }}"
   tags:
     - configure
 
-- name: set up xinitrc
-  lineinfile:
+- name: Set up xinitrc
+  ansible.builtin.lineinfile:
     dest: ~/.xinitrc
     state: present
     create: yes
