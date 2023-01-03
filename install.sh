@@ -42,7 +42,7 @@ do
 done
 
 # verify requirements
-requirements=(pipx git)
+requirements=(poetry git)
 for r in "${requirements[@]}"; do
     if ! type -p $r > /dev/null; then
         echo "$r executable not found in path, aborting"
