@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "nephelaiio.i3"
+version = "0.1.0"
+description = ""
+authors = ["Ted Cook <teodoro.cook@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+ansible = "^7.1.0"
+netaddr = "^0.8.0"
+MarkupSafe = "==2.0.1"
+molecule = {extras = ["docker"], version = "^4.0.4"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

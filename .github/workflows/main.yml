@@ -16,9 +16,11 @@ defaults:
 jobs:
 
   lint:
+
     name: Lint
     runs-on: ubuntu-latest
     steps:
+
       - name: Check out the codebase.
         uses: actions/checkout@v2
         with:
@@ -37,30 +39,32 @@ jobs:
           ansible-lint .
 
   molecule:
+
     name: Molecule
     runs-on: ubuntu-latest
     strategy:
       matrix:
         image:
-          - geerlingguy/docker-ubuntu2004-ansible:latest
-          - geerlingguy/docker-ubuntu1804-ansible:latest
-          - geerlingguy/docker-ubuntu1604-ansible:latest
-          - geerlingguy/docker-debian10-ansible:latest
+          - ubuntu2004
+          - ubuntu1804
+          - ubuntu1604
+          - debian10
     steps:
-      - name: Check out the codebase.
+
+      - name: Check out the codebase
         uses: actions/checkout@v2
         with:
           path: 'nephelaiio.i3'
 
-      - name: Set up Python 3.
+      - name: Set up Python 3
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
 
-      - name: Install test dependencies.
-        run: pip3 install ansible molecule[docker] docker pytest pytest-testinfra
+      - name: Install poetry
+        run: pip3 install poetry
 
-      - name: Run Molecule tests.
+      - name: Run Molecule tests
         run: molecule test
         env:
           PY_COLORS: '1'
