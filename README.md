@@ -1,6 +1,6 @@
 # nephelaiio.i3
 
-[![Build Status](https://github.com/nephelaiio/ansible-role-i3/workflows/CI/badge.svg)](https://github.com/nephelaiio/ansible-role-i3/actions)
+[![Build Status](https://github.com/nephelaiio/ansible-role-i3/workflows/molecule/badge.svg)](https://github.com/nephelaiio/ansible-role-i3/actions)
 [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-nephelaiio.i3-blue.svg)](https://galaxy.ansible.com/nephelaiio/i3/)
 
 An [ansible role](https://galaxy.ansible.com/nephelaiio/i3) to install and configure i3
