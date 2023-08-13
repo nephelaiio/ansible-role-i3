@@ -7,6 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+molecule-docker = "^2.1.0"
 
 [tool.poetry.group.dev.dependencies]
 ansible = "^8.2.0"
