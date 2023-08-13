@@ -1,5 +1,5 @@
 ---
-name: CI
+name: molecule
 
 on:
   pull_request:
